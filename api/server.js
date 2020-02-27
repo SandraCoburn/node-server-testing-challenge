@@ -1,4 +1,4 @@
-const server = require("express");
+const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 
@@ -18,7 +18,7 @@ server.use("/api/auth", authRouter);
 server.use("/api/users", restricted, checkRole("user"), usersRouter);
 
 server.get("/", (req, res) => {
-  res.send("It's alive!");
+  res.send({ api: "It's alive!" });
 });
 
 module.exports = server;
